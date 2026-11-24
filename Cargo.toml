@@ -1,0 +1,31 @@
+[package]
+name = "foldmark"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.85"
+description = "Plan saddle-stitch booklet signatures without wasting paper"
+license = "MIT"
+repository = "https://github.com/nicholas-ruest/foldmark"
+readme = "README.md"
+keywords = ["booklet", "printing", "imposition", "publishing", "cli"]
+categories = ["command-line-utilities"]
+
+[lib]
+name = "foldmark"
+path = "src/lib.rs"
+
+[[bin]]
+name = "foldmark"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "4.5.53", features = ["derive"] }
+serde = { version = "1.0.228", features = ["derive"] }
+serde_json = "1.0.145"
+
+[dev-dependencies]
+tempfile = "3.23.0"
+
+[profile.release]
+strip = true
+lto = "thin"
